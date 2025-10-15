@@ -1,6 +1,6 @@
 {
   "name": "capacitor-amap",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "高德地图插件 for Capacitor - AMap Plugin (Location, Map, Navigation)",
   "main": "dist/esm/index.js",
   "module": "dist/esm/index.js",
