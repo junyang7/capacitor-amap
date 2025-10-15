@@ -1,0 +1,50 @@
+{
+  "name": "capacitor-amap",
+  "version": "1.0.0",
+  "description": "高德定位插件 for Capacitor - AMap Location Plugin",
+  "main": "dist/esm/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
+  "unpkg": "dist/plugin.js",
+  "files": [
+    "android/",
+    "dist/",
+    "src/"
+  ],
+  "author": "junyang7",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/junyang7/capacitor-amap.git"
+  },
+  "bugs": {
+    "url": "https://github.com/junyang7/capacitor-amap/issues"
+  },
+  "keywords": [
+    "capacitor",
+    "plugin",
+    "amap",
+    "location",
+    "geolocation",
+    "gps",
+    "china"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "prepublishOnly": "yarn build"
+  },
+  "devDependencies": {
+    "@capacitor/android": "^7.4.3",
+    "@capacitor/core": "^7.4.3",
+    "typescript": "^5.9.3"
+  },
+  "peerDependencies": {
+    "@capacitor/core": "^7.0.0"
+  },
+  "capacitor": {
+    "android": {
+      "src": "android"
+    }
+  }
+}

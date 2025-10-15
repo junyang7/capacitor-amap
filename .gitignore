@@ -1,0 +1,33 @@
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Build
+dist/
+*.tgz
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Android
+*.iml
+.gradle
+/local.properties
+.cxx/
+build/
+captures/
+.externalNativeBuild
+.cxx
+
+# Capacitor
+.capacitor/
+
