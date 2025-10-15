@@ -39,18 +39,17 @@ npx cap sync android
 
 ### 1. 申请高德API Key
 
+⚠️ **重要**：高德API Key与**您的应用包名**和**签名SHA1**绑定，每个APP需要申请独立的Key。
+
 访问 [高德开放平台控制台](https://console.amap.com/dev/key/app)
 
-创建 **Android平台** Key时，请使用以下配置信息：
+创建 **Android平台** Key时的配置：
 
 ```
 平台类型: Android
-PackageName（包名）: fun.ziji.capacitor.amap
-SHA1安全码: 待插件首次运行后获取（见下文）
+PackageName: com.yourcompany.yourapp  ← 您的应用包名
+SHA1安全码: [您的应用签名SHA1]      ← 见下文获取方法
 ```
-
-> **重要提示**：每个使用本插件的应用都需要使用**自己的包名**申请独立的Key！
-> 上述包名仅用于插件开发测试。
 
 ### 2. 获取你的应用的SHA1值
 
