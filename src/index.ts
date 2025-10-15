@@ -1,14 +1,14 @@
 import { registerPlugin } from '@capacitor/core';
 
-import type { AmapLocationPlugin } from './definitions';
+import type { AmapPlugin } from './definitions';
 
 /**
- * 注册高德定位插件
+ * 注册高德地图插件
  */
-const AmapLocation = registerPlugin<AmapLocationPlugin>('AmapLocation', {
-  web: () => import('./web').then((m) => new m.AmapLocationWeb()),
+const Amap = registerPlugin<AmapPlugin>('Amap', {
+  web: () => import('./web').then((m) => new m.AmapWeb()),
 });
 
 export * from './definitions';
-export { AmapLocation };
+export { Amap };
 

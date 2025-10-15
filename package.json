@@ -1,7 +1,7 @@
 {
   "name": "capacitor-amap",
   "version": "1.0.0",
-  "description": "高德定位插件 for Capacitor - AMap Location Plugin",
+  "description": "高德地图插件 for Capacitor - AMap Plugin (Location, Map, Navigation)",
   "main": "dist/esm/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
@@ -24,9 +24,12 @@
     "capacitor",
     "plugin",
     "amap",
+    "gaode",
     "location",
     "geolocation",
     "gps",
+    "map",
+    "navigation",
     "china"
   ],
   "scripts": {

@@ -1,9 +1,10 @@
 import type { PluginListenerHandle } from '@capacitor/core';
 
 /**
- * 高德定位插件接口
+ * 高德地图插件接口
+ * 提供定位等功能
  */
-export interface AmapLocationPlugin {
+export interface AmapPlugin {
   /**
    * 检查定位权限状态
    */

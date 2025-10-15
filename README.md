@@ -1,18 +1,19 @@
 # capacitor-amap
 
-高德定位插件 for Capacitor - 专为国内Android应用优化
+高德地图插件 for Capacitor - 专为国内Android应用优化（定位/地图/导航）
 
 [![npm version](https://badge.fury.io/js/capacitor-amap.svg)](https://www.npmjs.com/package/capacitor-amap)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## 为什么需要这个插件？
 
-Capacitor 官方的 `@capacitor/geolocation` 插件依赖 Google Play Services，在国内大部分Android设备上：
+Capacitor 官方的地理位置插件依赖 Google Play Services，在国内大部分Android设备上：
 - ❌ 定位失败或超时
 - ❌ 精度极差（误差500米+）
 - ❌ 无法使用GPS
+- ❌ 无法使用国内地图服务
 
-**本插件使用高德定位SDK，完美解决国内定位问题！**
+**本插件使用高德SDK，完美解决国内应用问题！**
 
 ## ✨ 特性
 
@@ -95,23 +96,23 @@ keytool -list -v -keystore /path/to/your/release.keystore \
 ### 基础用法
 
 ```typescript
-import { AmapLocation } from 'capacitor-amap';
+import { Amap } from 'capacitor-amap';
 
 async function getLocation() {
   try {
     // 1. 检查权限
-    const permStatus = await AmapLocation.checkPermissions();
+    const permStatus = await Amap.checkPermissions();
     
     if (permStatus.location !== 'granted') {
       // 2. 请求权限
-      const result = await AmapLocation.requestPermissions();
+      const result = await Amap.requestPermissions();
       if (result.location !== 'granted') {
         throw new Error('用户拒绝定位权限');
       }
     }
     
     // 3. 获取位置
-    const position = await AmapLocation.getCurrentPosition({
+    const position = await Amap.getCurrentPosition({
       key: '你的高德API_Key',  // 必填
       needAddress: true,
       enableHighAccuracy: true,
@@ -139,7 +140,7 @@ let watchId: string | null = null;
 
 // 开始监听
 async function startWatch() {
-  const result = await AmapLocation.watchPosition({
+  const result = await Amap.watchPosition({
     key: '你的高德API_Key',
     needAddress: true,
     enableHighAccuracy: true,
@@ -149,12 +150,12 @@ async function startWatch() {
   watchId = result.id;
   
   // 监听位置更新
-  await AmapLocation.addListener('locationUpdate', (position) => {
+  await Amap.addListener('locationUpdate', (position) => {
     console.log('位置更新:', position);
   });
   
   // 监听错误
-  await AmapLocation.addListener('locationError', (error) => {
+  await Amap.addListener('locationError', (error) => {
     console.error('定位错误:', error);
   });
 }
@@ -162,8 +163,8 @@ async function startWatch() {
 // 停止监听
 async function stopWatch() {
   if (watchId) {
-    await AmapLocation.clearWatch({ id: watchId });
-    await AmapLocation.removeAllListeners();
+    await Amap.clearWatch({ id: watchId });
+    await Amap.removeAllListeners();
     watchId = null;
   }
 }
@@ -280,7 +281,7 @@ Promise<{
 位置更新事件（watchPosition时触发）。
 
 ```typescript
-await AmapLocation.addListener('locationUpdate', (position) => {
+await Amap.addListener('locationUpdate', (position) => {
   console.log('新位置:', position);
 });
 ```
@@ -290,7 +291,7 @@ await AmapLocation.addListener('locationUpdate', (position) => {
 定位错误事件。
 
 ```typescript
-await AmapLocation.addListener('locationError', (error) => {
+await Amap.addListener('locationError', (error) => {
   console.error('错误:', error.message, error.code);
 });
 ```

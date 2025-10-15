@@ -100,7 +100,7 @@ npx cap sync android
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import { AmapLocation } from 'capacitor-amap';
+import { Amap } from 'capacitor-amap';
 
 const result = ref('');
 
@@ -110,17 +110,17 @@ async function testLocation() {
     const TEST_KEY = 'abc123...';  // 替换为你的Key
     
     // 1. 检查权限
-    const permStatus = await AmapLocation.checkPermissions();
+    const permStatus = await Amap.checkPermissions();
     result.value += `权限状态: ${JSON.stringify(permStatus)}\n`;
     
     if (permStatus.location !== 'granted') {
       // 2. 请求权限
-      const permResult = await AmapLocation.requestPermissions();
+      const permResult = await Amap.requestPermissions();
       result.value += `权限请求: ${JSON.stringify(permResult)}\n`;
     }
     
     // 3. 获取位置
-    const position = await AmapLocation.getCurrentPosition({
+    const position = await Amap.getCurrentPosition({
       key: TEST_KEY,
       needAddress: true,
       enableHighAccuracy: true
@@ -177,12 +177,12 @@ async function testLocation() {
 
 **Logcat日志**：
 ```
-AmapLocationPlugin: checkPermissions called
-AmapLocationPlugin: getCurrentPosition called
-AmapLocationPlugin: API Key set
-AmapLocationPlugin: Location client started
-AmapLocationPlugin: onLocationChanged, errorCode: 0
-AmapLocationPlugin: Position built - lat: xx.xx, lon: xx.xx
+AmapPlugin: checkPermissions called
+AmapPlugin: getCurrentPosition called
+AmapPlugin: API Key set
+AmapPlugin: Location client started
+AmapPlugin: onLocationChanged, errorCode: 0
+AmapPlugin: Position built - lat: xx.xx, lon: xx.xx
 ```
 
 **返回数据**：

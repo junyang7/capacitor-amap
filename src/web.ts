@@ -1,7 +1,7 @@
 import { WebPlugin } from '@capacitor/core';
 
 import type { 
-  AmapLocationPlugin, 
+  AmapPlugin, 
   LocationOptions,
   PermissionStatus,
   Position,
@@ -12,7 +12,7 @@ import type {
  * Web平台实现（占位符）
  * 在Web环境下，建议使用浏览器的Geolocation API
  */
-export class AmapLocationWeb extends WebPlugin implements AmapLocationPlugin {
+export class AmapWeb extends WebPlugin implements AmapPlugin {
   
   async checkPermissions(): Promise<PermissionStatus> {
     throw this.unimplemented('Not implemented on web.');

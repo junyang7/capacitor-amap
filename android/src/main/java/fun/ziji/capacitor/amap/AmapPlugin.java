@@ -18,11 +18,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 高德定位 Capacitor 插件
- * 提供定位服务的JavaScript接口
+ * 高德地图 Capacitor 插件
+ * 提供定位等服务的JavaScript接口
  */
 @CapacitorPlugin(
-    name = "AmapLocation",
+    name = "Amap",
     permissions = {
         @Permission(
             strings = { Manifest.permission.ACCESS_FINE_LOCATION },
@@ -34,15 +34,15 @@ import java.util.Map;
         )
     }
 )
-public class AmapLocationPlugin extends Plugin {
+public class AmapPlugin extends Plugin {
 
-    private static final String TAG = "AmapLocationPlugin";
+    private static final String TAG = "AmapPlugin";
     private Map<String, AMapLocationClient> watchMap = new HashMap<>();
 
     @Override
     public void load() {
         super.load();
-        Log.d(TAG, "AmapLocation plugin loaded");
+        Log.d(TAG, "Amap plugin loaded");
         
         // 设置隐私合规
         AMapLocationClient.updatePrivacyShow(getContext(), true, true);
